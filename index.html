@@ -1,0 +1,85 @@
+---
+layout: default
+title: Home
+---
+{% assign p = site.data.profile %}
+<section id="about" class="section hero scroll-section">
+ <div class="hero-aura hero-aura-one"></div><div class="hero-aura hero-aura-two"></div>
+ <div class="container hero-grid">
+  <div class="hero-copy">
+   <h1>{{ p.headline | escape }}</h1>
+   <p class="hero-description">{{ p.hero_description | escape }}</p>
+   <div class="hero-actions"><a class="btn btn-primary" href="#portfolio">Explore my work <svg class="icon"><use href="#i-arrow"/></svg></a><a class="btn btn-secondary" href="#contact">Get in touch <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+   {% if p.show_stats and p.stats and p.stats.size > 0 %}
+   <div class="hero-stats">{% for stat in p.stats %}<div class="stat"><strong>{{ stat.value | escape }}</strong><span>{{ stat.label | escape }}</span></div>{% endfor %}</div>
+   {% endif %}
+  </div>
+  <div class="hero-visual">
+    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="blob glow-blue"></div><div class="blob glow-violet"></div>
+    <div class="portrait-frame"><img src="{% if p.profile_photo and p.profile_photo != '' %}{{ p.profile_photo | relative_url }}{% else %}{{ '/assets/img/profile-placeholder.svg' | relative_url }}{% endif %}" alt="Portrait of {{ p.name | escape }}" class="portrait-photo" fetchpriority="high"></div>
+    {% if p.photo_caption and p.photo_caption != '' %}<div class="photo-note"><span class="dot"></span>{{ p.photo_caption | escape }}</div>{% endif %}
+    <div class="signature">{{ p.name | escape }}</div>
+  </div>
+ </div>
+</section>
+
+<section id="expertise" class="section section-pattern expertise-section scroll-section">
+ <div class="container"><div class="section-heading"><h2>Areas of <span class="gradient-text">expertise.</span></h2><p>{{ p.expertise_intro | escape }}</p></div>
+ <div class="expertise-grid">
+ {% assign skills = site.expertise | sort: 'order' %}{% for skill in skills %}
+ <article class="skill-card accent-{{ skill.accent | default: 'blue' }}"><div class="skill-glow"></div><span class="icon-chip"><svg class="icon"><use href="#i-{{ skill.icon | default: 'sparkles' }}"/></svg></span><h3>{{ skill.title | escape }}</h3><p>{{ skill.description | escape }}</p><span class="round-arrow" aria-hidden="true"><svg class="icon"><use href="#i-arrow-right"/></svg></span></article>
+ {% endfor %}
+ </div></div>
+</section>
+
+<section id="portfolio" class="section section-pattern portfolio-section scroll-section">
+ <div class="container"><div class="section-heading"><h2>Portfolio<span class="dot-end">.</span></h2><p>{{ p.portfolio_intro | escape }}</p></div>
+ {% assign visible_projects = site.projects | where: 'published', true | sort: 'order' %}
+ <div class="filter-row" role="group" aria-label="Filter portfolio projects"><button type="button" class="filter-button active" data-filter="all" aria-pressed="true">All <b>{{ visible_projects.size }}</b></button>
+ {% assign categories = site.portfolio_categories | sort: 'order' %}{% for cat in categories %}{% assign cat_total = 0 %}{% for project in visible_projects %}{% if project.category == cat.slug %}{% assign cat_total = cat_total | plus: 1 %}{% endif %}{% endfor %}{% if cat_total > 0 %}<button type="button" class="filter-button" data-filter="{{ cat.slug | escape }}" aria-pressed="false">{{ cat.title | escape }} <b>{{ cat_total }}</b></button>{% endif %}{% endfor %}
+ </div>
+ <div class="portfolio-grid" id="portfolio-grid">
+ {% for project in visible_projects %}
+ {% assign cat = site.portfolio_categories | where: 'slug', project.category | first %}
+ <article class="project-card" data-category="{{ project.category | escape }}">
+  <div class="project-image-wrap"><img src="{{ project.cover | default: '/assets/img/project-ai.svg' | relative_url }}" alt="{{ project.title | escape }} project cover" loading="lazy"><span class="project-category">{{ cat.title | default: 'Project' | escape }}</span></div>
+  <div class="project-card-body"><h3>{{ project.title | escape }}</h3><p>{{ project.summary | escape }}</p>
+   <div class="project-actions">
+   {% if project.gallery and project.gallery.size > 0 %}<button type="button" class="btn btn-small btn-primary" data-gallery='{{ project.gallery | jsonify | escape }}' data-gallery-label="{{ project.title | escape }}"><svg class="icon"><use href="#i-eye"/></svg> View Screens</button>{% endif %}
+   <a class="btn btn-small btn-secondary" href="{{ project.url | relative_url }}">Case Study <svg class="icon"><use href="#i-arrow"/></svg></a>
+   </div></div>
+ </article>
+ {% endfor %}
+ </div><p id="portfolio-empty" class="empty-state" hidden>No projects in this category yet.</p>
+ </div>
+</section>
+
+<section id="experience" class="section section-pattern experience-section scroll-section"><div class="container">
+ <div class="section-heading"><h2>Experience<span class="gradient-text">.</span></h2><p>{{ p.experience_intro | escape }}</p></div>
+ <div class="experience-list">{% assign experiences = site.experiences | sort: 'order' %}{% for experience in experiences %}
+ <div class="experience-item"><div class="experience-date"><span class="timeline-dot"></span>{{ experience.period | escape }}</div>
+ <div class="experience-card"><div><h3>{{ experience.title | escape }}</h3><span class="company">{{ experience.company | escape }}</span><p>{{ experience.description | escape }}</p></div>{% if experience.link and experience.link != '' %}<a href="{{ experience.link | escape }}" target="_blank" rel="noopener noreferrer" class="timeline-link" aria-label="Open {{ experience.title | escape }}"><svg class="icon"><use href="#i-arrow"/></svg></a>{% endif %}</div></div>
+ {% endfor %}</div></div>
+</section>
+
+<section id="certs" class="section section-pattern certs-section scroll-section"><div class="container">
+ <div class="section-heading"><h2>Certifications &amp; <span class="gradient-text">achievements.</span></h2><p>{{ p.certifications_intro | escape }}</p></div>
+ <div class="cert-grid">{% assign certs = site.certificates | sort: 'order' %}{% for cert in certs %}
+ <article class="cert-card"><div class="cert-icon"><svg class="icon"><use href="#i-award"/></svg></div><div class="cert-info"><span class="cert-year">{{ cert.year | escape }}</span><h3>{{ cert.title | escape }}</h3><p>{{ cert.issuer | escape }}</p>{% if cert.description and cert.description != '' %}<small>{{ cert.description | escape }}</small>{% endif %}</div>
+ {% if cert.proof_url and cert.proof_url != '' %}<a class="cert-open" href="{{ cert.proof_url | escape }}" target="_blank" rel="noopener noreferrer" aria-label="Verify {{ cert.title | escape }}"><svg class="icon"><use href="#i-arrow"/></svg></a>{% elsif cert.image and cert.image != '' %}<a class="cert-open" href="{{ cert.image | relative_url }}" target="_blank" rel="noopener noreferrer" aria-label="View certificate {{ cert.title | escape }}"><svg class="icon"><use href="#i-arrow"/></svg></a>{% endif %}
+ </article>
+ {% endfor %}</div></div>
+</section>
+
+<section id="services" class="section section-pattern services-section scroll-section"><div class="container">
+ <div class="section-heading"><h2>Services &amp; <span class="gradient-text">collaborations.</span></h2><p>{{ p.services_intro | escape }}</p></div>
+ <div class="services-grid">{% assign offerings = site.services | sort: 'order' %}{% for service in offerings %}
+ <article class="service-card accent-{{ service.accent | default: 'blue' }}"><div class="service-icon icon-chip"><svg class="icon"><use href="#i-{{ service.icon | default: 'sparkles' }}"/></svg></div><h3>{{ service.title | escape }}</h3><p>{{ service.description | escape }}</p>{% if service.link and service.link != '' %}<a class="service-arrow" href="{{ service.link | escape }}" target="_blank" rel="noopener noreferrer" aria-label="More about {{ service.title | escape }}"><svg class="icon"><use href="#i-arrow"/></svg></a>{% endif %}</article>
+ {% endfor %}</div></div>
+</section>
+
+<section id="contact" class="section contact-section scroll-section"><div class="container"><div class="contact-panel"><div class="contact-copy"><h2>Let's work together.</h2><p>{{ p.contact_description | escape }}</p><div class="contact-buttons">{% if p.email and p.email != '' %}<a class="btn btn-primary" href="mailto:{{ p.email | escape }}">Send a message <svg class="icon"><use href="#i-arrow"/></svg></a>{% endif %}{% if p.cv and p.cv != '' %}<a class="btn btn-secondary" href="{{ p.cv | relative_url }}" download>Download CV <svg class="icon"><use href="#i-download"/></svg></a>{% endif %}</div></div>
+ <div class="contact-details">{% if p.email and p.email != '' %}<div class="detail"><span><svg class="icon"><use href="#i-mail"/></svg></span><div><small>Email</small><a href="mailto:{{ p.email | escape }}">{{ p.email | escape }}</a></div></div>{% endif %}
+ <div class="detail"><span><svg class="icon"><use href="#i-pin"/></svg></span><div><small>Location</small><strong>{{ p.location | escape }}</strong></div></div>
+ <div class="detail"><span><svg class="icon"><use href="#i-clock"/></svg></span><div><small>Availability</small><strong>{{ p.availability | escape }}</strong></div></div>
+ </div></div></div></section>

@@ -1,0 +1,20 @@
+---
+layout: default
+---
+{% assign p = site.data.profile %}{% assign category = site.portfolio_categories | where: 'slug', page.category | first %}
+<article class="case-study">
+  <div class="container">
+    <a class="back-link" href="{{ '/' | relative_url }}#portfolio"><svg class="icon"><use href="#i-arrow-right"/></svg> All projects</a>
+    <div class="case-hero"><div><span class="case-pill">{{ category.title | default: 'Project' | escape }}</span><h1>{{ page.title | escape }}</h1><p>{{ page.summary | escape }}</p></div></div>
+    <div class="case-cover"><img src="{{ page.cover | default: '/assets/img/project-ai.svg' | relative_url }}" alt="{{ page.title | escape }} cover"></div>
+    <div class="case-meta"><div><small>MY ROLE</small><strong>{{ page.role | default: 'Project contributor' | escape }}</strong></div><div><small>TIMELINE</small><strong>{{ page.timeline | default: '—' | escape }}</strong></div><div><small>TOOLS</small><strong>{% if page.tools %}{{ page.tools | join: ', ' | escape }}{% else %}—{% endif %}</strong></div></div>
+    <div class="case-content">
+      {% if page.challenge and page.challenge != '' %}<section><h2>The challenge</h2><p>{{ page.challenge | newline_to_br }}</p></section>{% endif %}
+      {% if page.process and page.process != '' %}<section><h2>Approach &amp; process</h2><p>{{ page.process | newline_to_br }}</p></section>{% endif %}
+      {% if page.results and page.results != '' %}<section><h2>Results &amp; impact</h2><p>{{ page.results | newline_to_br }}</p></section>{% endif %}
+      {% if content != '' %}<section><h2>More about this project</h2><div class="prose">{{ content }}</div></section>{% endif %}
+    </div>
+    {% if page.gallery and page.gallery.size > 0 %}<div class="case-gallery"><h2>Project gallery</h2><div class="case-gallery-grid">{% for image in page.gallery %}<button class="case-gallery-trigger" type="button" data-gallery='{{ page.gallery | jsonify | escape }}' data-gallery-start="{{ forloop.index0 }}" data-gallery-label="{{ page.title | escape }}"><img src="{{ image | relative_url }}" alt="Screenshot {{ forloop.index }} of {{ page.title | escape }}" loading="lazy"><span>View image {{ forloop.index }}</span></button>{% endfor %}</div></div>{% endif %}
+    <div class="case-links">{% if page.demo_url and page.demo_url != '' %}<a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="{{ page.demo_url | escape }}">Open live project <svg class="icon"><use href="#i-arrow"/></svg></a>{% endif %}{% if page.repo_url and page.repo_url != '' %}<a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="{{ page.repo_url | escape }}">View GitHub repository <svg class="icon"><use href="#i-github"/></svg></a>{% endif %}</div>
+  </div>
+</article>

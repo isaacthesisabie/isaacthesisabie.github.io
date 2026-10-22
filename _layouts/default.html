@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% assign p = site.data.profile %}
+  <meta name="theme-color" content="#080e26">
+  <meta name="description" content="{{ site.description | escape }}">
+  <title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ p.name | default: site.title | escape }}</title>
+  <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('isaac-theme')==='light'?'light':'dark'}catch(e){}</script>
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+</head>
+<body>
+{% include icons.html %}
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}#about" aria-label="Back to home">{{ p.brand | default: 'Isaac Shabri.' | escape }}</a>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a data-nav="about" href="{{ '/' | relative_url }}#about">About</a>
+      <a data-nav="expertise" href="{{ '/' | relative_url }}#expertise">Expertise</a>
+      <a data-nav="portfolio" href="{{ '/' | relative_url }}#portfolio">Portfolio</a>
+      <a data-nav="experience" href="{{ '/' | relative_url }}#experience">Experience</a>
+      <a data-nav="certs" href="{{ '/' | relative_url }}#certs">Certs</a>
+      <a data-nav="services" href="{{ '/' | relative_url }}#services">Services</a>
+      <a data-nav="contact" href="{{ '/' | relative_url }}#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle light or dark theme" title="Toggle light or dark theme"><svg class="icon moon"><use href="#i-moon"/></svg><svg class="icon sun"><use href="#i-sun"/></svg></button>
+      <a class="btn btn-header" href="{{ '/' | relative_url }}#contact">Let's work together <svg class="icon"><use href="#i-arrow"/></svg></a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false" aria-controls="main-nav"><svg class="icon"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">{{ content }}</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><a class="brand" href="{{ '/' | relative_url }}#about">{{ p.brand | default: 'Isaac Shabri.' | escape }}</a><p>{{ p.footer_note | escape }}</p></div>
+    <div class="footer-links"><a href="{{ '/' | relative_url }}#about">About</a><a href="{{ '/' | relative_url }}#portfolio">Portfolio</a><a href="{{ '/' | relative_url }}#experience">Experience</a><a href="{{ '/' | relative_url }}#contact">Contact</a></div>
+    <div class="socials">
+      {% if p.linkedin and p.linkedin != '' %}<a href="{{ p.linkedin | escape }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a>{% endif %}
+      {% if p.github and p.github != '' %}<a href="{{ p.github | escape }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a>{% endif %}
+      {% if p.email and p.email != '' %}<a href="mailto:{{ p.email | escape }}" aria-label="Email"><svg class="icon"><use href="#i-mail"/></svg></a>{% endif %}
+    </div>
+  </div>
+  <div class="container copyright"><span>© {{ 'now' | date: '%Y' }} {{ p.name | escape }}. All rights reserved.</span><span>Designed with purpose, built for impact.</span></div>
+</footer>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project image gallery" aria-hidden="true" hidden>
+  <button class="lightbox-close" type="button" data-gallery-close aria-label="Close gallery"><svg class="icon"><use href="#i-close"/></svg></button>
+  <div class="lightbox-body"><img id="lightbox-image" alt="Project preview"><div class="lightbox-controls"><button type="button" data-gallery-prev aria-label="Previous image">‹</button><span id="lightbox-counter"></span><button type="button" data-gallery-next aria-label="Next image">›</button></div></div>
+</div>
+</body>
+</html>

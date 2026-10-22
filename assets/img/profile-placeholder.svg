@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 760">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#244d9d"/><stop offset=".52" stop-color="#15316b"/><stop offset="1" stop-color="#091a45"/></linearGradient><radialGradient id="l" cx=".6" cy=".2" r=".9"><stop stop-color="#66abff" stop-opacity=".55"/><stop offset="1" stop-color="#24468b" stop-opacity="0"/></radialGradient><linearGradient id="s" x2="1" y2="1"><stop stop-color="#1c305f"/><stop offset=".48" stop-color="#0a1738"/><stop offset="1" stop-color="#283c6c"/></linearGradient></defs>
+<rect width="630" height="760" fill="url(#bg)"/><rect width="630" height="760" fill="url(#l)"/>
+<circle cx="320" cy="245" r="220" fill="#4877c7" opacity=".13"/><path d="M65 760Q78 550 215 520l102-30 93 30q135 25 163 240" fill="url(#s)"/>
+<path d="M252 518 317 617l72-99-34-36h-70Z" fill="#b6c8ec" opacity=".38"/><path d="M284 563h67l24 197H253Z" fill="#0a1432" opacity=".9"/>
+<ellipse cx="320" cy="318" rx="139" ry="174" fill="#779add"/><path d="M181 300q-18-190 137-200 160 1 141 196l-23-45q-12-62-40-71-90 78-212 90Z" fill="#081b48"/><path d="M193 287q-10-81 28-124 26-42 92-46 100 0 129 76-13-24-59-43-52 85-190 137Z" fill="#102958"/>
+<ellipse cx="170" cy="330" rx="16" ry="30" fill="#658cca"/><ellipse cx="467" cy="329" rx="15" ry="30" fill="#658cca"/><path d="M244 373q74 60 153-1" stroke="#2d4d86" stroke-width="10" opacity=".12" fill="none"/>
+<rect x="95" y="637" width="440" height="70" rx="19" fill="#142e64" opacity=".8"/><text x="315" y="678" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="bold" fill="#d4e3ff">UPLOAD YOUR PHOTO IN CMS</text>
+</svg>

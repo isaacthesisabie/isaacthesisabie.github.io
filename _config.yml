@@ -1,0 +1,35 @@
+title: "Isaac Shabri | Portfolio"
+description: "A personal portfolio featuring technology, strategy, data and impactful projects."
+url: "https://isaacthesisabie.github.io"
+baseurl: ""
+lang: en
+markdown: kramdown
+timezone: Asia/Jakarta
+permalink: pretty
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+  portfolio_categories:
+    output: false
+  experiences:
+    output: false
+  certificates:
+    output: false
+  expertise:
+    output: false
+  services:
+    output: false
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+exclude:
+  - README.md
+  - PANDUAN-LENGKAP.md
+  - QA-REPORT.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
