@@ -1,0 +1,146 @@
+media:
+  input: assets/uploads
+  output: /assets/uploads
+  rename: safe
+content:
+  - name: profile
+    label: "01 · Profil & Pengaturan"
+    type: file
+    path: _data/profile.yml
+    format: yaml
+    fields:
+      - { name: name, label: Nama, type: string, required: true }
+      - { name: brand, label: Teks Logo Navbar, type: string }
+      - { name: headline, label: Judul Hero, type: string, required: true }
+      - { name: hero_description, label: Deskripsi Hero, type: text }
+      - { name: profile_photo, label: Foto Profil (Upload), type: image }
+      - { name: photo_caption, label: Badge Kecil pada Foto, type: string }
+      - { name: availability, label: Status Kesediaan, type: string }
+      - { name: location, label: Lokasi, type: string }
+      - { name: email, label: Email, type: string }
+      - { name: linkedin, label: Link LinkedIn, type: string }
+      - { name: github, label: Link GitHub, type: string }
+      - { name: cv, label: Upload CV (PDF), type: file, options: { extensions: [pdf] } }
+      - { name: show_stats, label: Tampilkan Statistik, type: boolean }
+      - name: stats
+        label: Statistik Hero
+        type: object
+        list: { max: 4, collapsible: { collapsed: true, summary: "{value} — {label}" } }
+        fields:
+          - { name: value, label: Angka (contoh 3+), type: string }
+          - { name: label, label: Keterangan, type: string }
+      - { name: expertise_intro, label: Deskripsi Expertise, type: text }
+      - { name: portfolio_intro, label: Deskripsi Portfolio, type: text }
+      - { name: experience_intro, label: Deskripsi Experience, type: text }
+      - { name: certifications_intro, label: Deskripsi Sertifikat, type: text }
+      - { name: services_intro, label: Deskripsi Services, type: text }
+      - { name: contact_description, label: Deskripsi Contact, type: text }
+      - { name: footer_note, label: Tagline Footer, type: string }
+  - name: categories
+    label: "02 · Kategori Portfolio"
+    type: collection
+    path: _portfolio_categories
+    filename: "{primary}.md"
+    view: { primary: title, fields: [title, slug, order] }
+    fields:
+      - { name: title, label: Nama Kategori, type: string, required: true }
+      - { name: slug, label: Slug unik (huruf-kecil-dan-strip), type: string, required: true, pattern: '^[a-z0-9-]+$' }
+      - { name: order, label: Urutan, type: number }
+  - name: projects
+    label: "03 · Portfolio Projects"
+    type: collection
+    path: _projects
+    filename: "{primary}.md"
+    view: { primary: title, fields: [title, category, published, order] }
+    fields:
+      - { name: title, label: Judul Proyek, type: string, required: true }
+      - { name: summary, label: Deskripsi Kartu, type: text }
+      - name: category
+        label: Kategori
+        type: reference
+        options:
+          collection: categories
+          value: "{slug}"
+          label: "{title}"
+      - { name: cover, label: Cover Project, type: image }
+      - name: gallery
+        label: Galeri Screenshots (Bisa Banyak)
+        type: image
+        options:
+          multiple: { max: 20 }
+          unique: true
+      - { name: role, label: Peran Saya, type: string }
+      - { name: tools, label: Tools (bisa tambah banyak), type: string, list: true }
+      - { name: timeline, label: Periode Project, type: string }
+      - { name: challenge, label: Challenge / Masalah, type: text }
+      - { name: process, label: Proses / Solusi, type: text }
+      - { name: results, label: Hasil / Outcome, type: text }
+      - { name: demo_url, label: Link Live Demo, type: string }
+      - { name: repo_url, label: Link GitHub Repository, type: string }
+      - { name: published, label: Publish di Website, type: boolean }
+      - { name: order, label: Urutan Tampil, type: number }
+      - { name: body, label: Cerita Lengkap Project (opsional), type: rich-text }
+  - name: expertise
+    label: "04 · Areas of Expertise"
+    type: collection
+    path: _expertise
+    filename: "{primary}.md"
+    view: { primary: title, fields: [title, accent, order] }
+    fields:
+      - { name: title, label: Keahlian, type: string, required: true }
+      - { name: description, label: Deskripsi, type: text }
+      - name: icon
+        label: Ikon
+        type: select
+        options: { values: [chart, chip, target, users, calendar, book, code, chart-pie, briefcase, sparkles, pen, layers, globe, award, file, brain] }
+      - name: accent
+        label: Warna
+        type: select
+        options: { values: [blue, cyan, purple, indigo, teal, violet] }
+      - { name: order, label: Urutan, type: number }
+  - name: experiences
+    label: "05 · Pengalaman"
+    type: collection
+    path: _experiences
+    filename: "{primary}.md"
+    view: { primary: title, fields: [title, company, period, order] }
+    fields:
+      - { name: title, label: Jabatan, type: string, required: true }
+      - { name: company, label: Organisasi/Perusahaan, type: string }
+      - { name: period, label: Periode (contoh 2024—Present), type: string }
+      - { name: description, label: Kontribusi & Outcome, type: text }
+      - { name: link, label: Link Pendukung (opsional), type: string }
+      - { name: order, label: Urutan, type: number }
+  - name: certificates
+    label: "06 · Sertifikat & Penghargaan"
+    type: collection
+    path: _certificates
+    filename: "{primary}.md"
+    view: { primary: title, fields: [title, year, issuer, order] }
+    fields:
+      - { name: title, label: Nama Sertifikat/Penghargaan, type: string, required: true }
+      - { name: year, label: Tahun, type: string }
+      - { name: issuer, label: Penerbit/Penyelenggara, type: string }
+      - { name: description, label: Keterangan, type: text }
+      - { name: image, label: Foto Sertifikat, type: image }
+      - { name: proof_url, label: Tautan Verifikasi, type: string }
+      - { name: order, label: Urutan, type: number }
+  - name: services
+    label: "07 · Services & Collaborations"
+    type: collection
+    path: _services
+    filename: "{primary}.md"
+    view: { primary: title, fields: [title, accent, order] }
+    fields:
+      - { name: title, label: Layanan, type: string, required: true }
+      - { name: description, label: Penjelasan, type: text }
+      - name: icon
+        label: Ikon
+        type: select
+        options: { values: [users, file, calendar, pen, briefcase, chart, chip, target, sparkles, code, layers, award] }
+      - name: accent
+        label: Warna
+        type: select
+        options: { values: [blue, cyan, purple, indigo, teal, violet] }
+      - { name: link, label: Link Layanan (opsional), type: string }
+      - { name: order, label: Urutan, type: number }
