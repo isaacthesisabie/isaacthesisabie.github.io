@@ -1,9 +1,8 @@
 ---
-title: Event Strategy
-description: Planning and executing impactful events.
+title: Market & Competitor Research
+description: Competitive landscape mapping, digital engagement analysis, and
+  research synthesis to inform business decisions.
 icon: calendar
 accent: cyan
-link: ''
 order: 3
 ---
-
