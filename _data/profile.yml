@@ -1,29 +1,36 @@
 name: Isaac Shabri
 brand: Isaac Shabri.
-headline: Building ideas into meaningful impact.
-hero_description: I’m a data-driven problem solver interested in technology,
-  strategy, and creating solutions that make a real difference. Replace this
-  introduction in Pages CMS.
-profile_photo: /assets/uploads/foto-casual.png
-photo_caption: Turning ideas into impact
-availability: Open to new opportunities
+headline: Turning complex data into smarter decisions and measurable impact.
+hero_description: Data analyst and operations leader transforming complex data
+  into actionable insights, efficient workflows, and measurable business
+  results. Experienced in Python, SQL, BigQuery, Looker Studio, and
+  cross-functional operations.
+profile_photo: /assets/uploads/photo2026-10-2211-18-27-1.jpg
+photo_caption: From data to impact
+availability: Open to collaborations
 location: Indonesia
+email: isaacshabri@gmail.com
+linkedin: https://www.linkedin.com/in/isaacshabri/
 show_stats: true
 stats:
-  - value: 3+
+  - value: 2+
     label: Years Experience
   - value: 10+
     label: Projects Completed
-  - value: 5+
+  - value: 3+
     label: Areas of Expertise
-expertise_intro: A combination of cross-functional skills and an interest in
-  solving meaningful problems.
-portfolio_intro: A selection of projects across technology, data, and
-  collaborative initiatives. Explore each case study to learn about the process
-  and outcomes.
-experience_intro: Roles, collaborations, and the teams I've been part of.
-certifications_intro: A collection of recognitions and opportunities to keep learning.
-services_intro: Ways I can contribute and collaborate on meaningful projects.
-contact_description: I'm always open to discussing new opportunities,
-  interesting projects, or potential collaborations. Feel free to reach out!
-footer_note: Building ideas into meaningful impact.
+expertise_intro: Combining data analytics, automation, business strategy, and
+  cross-functional leadership to solve operational and commercial challenges.
+portfolio_intro: A selection of data analytics, automation, market research, and
+  business operations projects—focused on turning complex problems into
+  actionable results.
+experience_intro: Professional roles and leadership experiences across
+  analytics, FMCG operations, market intelligence, and business development.
+certifications_intro: National competition achievements and professional
+  learning milestones in data analytics, AI, and business innovation.
+services_intro: Areas where I can collaborate on analytics, workflow automation,
+  market intelligence, and data-driven business operations.
+contact_description: Interested in collaborating on analytics, operational
+  improvement, business strategy, or technology-driven projects? Let's connect
+  and explore what we can build together.
+footer_note: Data Specialist
