@@ -1,9 +1,8 @@
 ---
-title: Consulting
-description: Advising on data, technology, and strategic initiatives.
+title: Data Analytics & Dashboards
+description: Collaboration on sales, performance, and operational analysis, with
+  clear dashboards and decision-ready insights.
 icon: users
 accent: blue
-link: ''
 order: 1
 ---
-
