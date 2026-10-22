@@ -1,9 +1,8 @@
 ---
-title: Portfolio / Case Study Design
-description: Creating professional portfolio content and visual case studies.
+title: Business Operations & Strategy
+description: Supporting performance tracking, centralized data management,
+  process improvement, and cross-functional coordination.
 icon: pen
 accent: purple
-link: ''
 order: 4
 ---
-
