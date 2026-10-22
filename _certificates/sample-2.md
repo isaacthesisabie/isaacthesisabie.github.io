@@ -1,10 +1,6 @@
 ---
-title: Another Certification (Sample)
-year: '2025'
-issuer: Issuing Organization
-description: ''
-image: ''
-proof_url: ''
+title: 1st Place — Business Ideation Competition, INSPIRE LPDP ITB
+year: "2025"
+issuer: LPDP ITB
 order: 2
 ---
-
