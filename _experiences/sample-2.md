@@ -1,9 +1,6 @@
 ---
-title: Project Experience (Sample)
-company: Another Organization
-period: 2023 — 2025
-description: Replace this sample with a real project, work, or organization experience.
-link: ''
+title: ICT Business Development Mentor
+company: GIVIC UNESA
+period: Feb – May 2026
 order: 2
 ---
-
