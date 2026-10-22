@@ -1,9 +1,8 @@
 ---
-title: Research Support
-description: Helping with research, analysis, and data-driven insights.
+title: Workflow & Data Automation
+description: Building streamlined data cleaning, reporting, and recurring
+  analysis workflows to reduce manual effort.
 icon: file
 accent: indigo
-link: ''
 order: 2
 ---
-
