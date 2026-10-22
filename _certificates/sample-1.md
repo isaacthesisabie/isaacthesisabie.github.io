@@ -1,10 +1,6 @@
 ---
-title: Achievement or Certification (Sample)
-year: '2026'
-issuer: Issuing Organization
-description: Replace with a real award or certificate.
-image: ''
-proof_url: ''
+title: Bronze Medal — GEMASTIK, ICT Business Development Division
+year: "2025"
+issuer: Dit. Belmawa / Dikti / Kemendiktisaintek
 order: 1
 ---
-
