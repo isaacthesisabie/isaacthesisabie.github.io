@@ -1,9 +1,6 @@
 ---
-title: Leadership Experience (Sample)
-company: Your Organization
-period: 2025 — Present
-description: Add your responsibilities, collaborators, and measurable outcomes via Pages CMS.
-link: ''
+title: Data Analyst Intern
+company: PT Kilap Global Group
+period: Feb – Jul 2026
 order: 1
 ---
-
