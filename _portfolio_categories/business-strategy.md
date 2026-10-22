@@ -1,6 +1,5 @@
 ---
-title: Business Strategy
-slug: business-strategy
+title: Data Scientist
+slug: data-scientist
 order: 3
 ---
-
