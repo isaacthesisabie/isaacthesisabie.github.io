@@ -27,6 +27,7 @@ description: >-
 
   - Conducted performance analysis on 150+ TikTok and Instagram content pieces,
   focusing on engagement metrics to generate insights on content effectiveness.
-link: https://drive.google.com/file/d/1Wa0_AN_eUFWYm-Lem2dfvcYZEzD0wHNv/view?usp=sharing
+link: "https://drive.google.com/file/d/1Wa0_AN_eUFWYm-Lem2dfvcYZEzD0wHNv/view?u\
+  sp=sharing "
 order: 1
 ---
